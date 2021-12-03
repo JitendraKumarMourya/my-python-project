@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/studentform/">
+        {% csrf_token %}
+    <input type="text" name="fname" placeholder="Fsirst Name" id=""><br><br>
+    <input type="text" name="lname" placeholder="Last Name" id=""><br><br>
+    <input type="text" name="age" id="" placeholder="age"><br><br>
+    <textarea name="address" placeholder="place"></textarea><br><br>
+    <input type="date" name="dob" id=""><br><br>
+    <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

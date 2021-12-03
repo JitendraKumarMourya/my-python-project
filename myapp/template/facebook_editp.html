@@ -1,0 +1,136 @@
+{% extends 'facebook_home.html' %}
+{% block content %}
+{% load static %}
+
+<h3>Edit profile :</h3>
+<form action="/facebook_editp/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div style="border-radius: 20px; border: 2px solid black; width: 60px; height: 50px; text-align: center;">
+    
+  </div>{{user}}
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="#" placeholder="First Name" name="fname" value="{{user.firstname}}">
+      </div>
+      <div class="form-group col-md-6">
+       <input type="text" class="form-control" id="#" placeholder="Last Name" name="lname" value="{{user.lastname}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="#" name="eml" placeholder="Email/Mobile number" value="{{user.email_mobile}}">
+    </div>
+    <div class="form-group">
+            <h5>Birthday</h5>
+            <select name="d">
+              <script>
+                d=new Date('{{user.dob}}').getDate();
+                document.write("<option value="+d+">"+d+"</option>")
+                
+              </script>
+              <option>Day</option>
+              <script>
+                for(i=1; i<=31; i++)
+                {
+                  if(i<10){
+                    document.write("<option value='"+0 + i +"'>" + i + "</option>")
+                  }
+                  else{
+                    document.write("<option value='"+ i +"'>" + i + "</option>")
+                  }
+                }
+              </script>
+            </select>
+
+            <select name="m">
+              <script>
+                months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                m=new Date('{{user.dob}}').getMonth();
+                console.log(m);
+                // for(i=1;i<=12;i++)
+                //   {
+                    if(m<10){
+                      document.write("<option value='"+0+i+"'>"+months[m]+"</option>")
+                    } 
+                      else{
+                        document.write("<option value='"+i+"'>"+months[m]+"</option>")
+                    }
+                  // }
+                document.write("<option value="+m+">"+m+"</option>")
+              </script>
+
+              <option>Month</option>
+              <script>
+                months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                  for(i=1;i<=12;i++)
+                  {
+                    if(i<10){
+                      document.write("<option value='"+0+i+"'>"+months[i-1]+"</option>")
+                    } 
+                      else{
+                        document.write("<option value='"+i+"'>"+months[i-1]+"</option>")
+                    }
+                  }
+              </script>
+            </select>
+
+            <select name="y">
+              <script>
+                y=new Date('{{user.dob}}').getFullYear();
+                document.write("<option value="+y+">"+y+"</option>")
+              </script>
+
+              <option>Year</option>
+              <script>
+                for(i=2000; i<=(new Date().getFullYear()); i++){
+                    document.write("<option value='"+ i +"'>" + i + "</option>")
+                }
+              </script>
+            </select>
+    </div>
+
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="m1" value="male">
+          <label class="form-check-label" for="inlineRadio1">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="f1" value="female">
+          <label class="form-check-label" for="inlineRadio2">Female</label>
+        </div>
+        <!-- <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="{{user.gender}}">
+          <label class="form-check-label" for="inlineRadio2">Others</label>
+        </div> -->
+      </div>
+<script>
+  gender='{{user.gender}}'
+  // alert(gender)
+  if(gender=='Male'){
+    document.getElementById('m1').checked=true
+  }
+  else{
+    document.getElementById('f1').checked=true
+  }
+</script>
+      <!-- file -->
+    <input type="file" name="fl">
+
+    <img src="/myapp/media/{{i.file}}" width="100" alt="image error">
+    
+    <button type="submit" class="btn btn-danger">Cancel</button>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="clear" class="btn btn-danger">Clear</button>
+  </form>
+  <table>
+  <tr>{% for i in show %}</tr>
+         <td>{{i.id}}</td>
+         <td>{{i.name}}</td>
+         <td>
+             <h1>Images</h1>
+             <img src="/myapp/media/{{i.file}}" width="100" alt="error">
+         </td>
+         {% endfor %}
+    </table>
+
+{% endblock %}

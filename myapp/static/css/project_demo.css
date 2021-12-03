@@ -1,0 +1,37 @@
+             
+                            /* -----DIV 2 for heading and para------ */
+                .div2{
+                    border-top-left-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                     border: 1px solid green;
+                    background: #D0D3D4;
+                    text-align: center;
+                    padding: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    font-size:auto;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                }
+                        /* ----FORM for a Registration form------ */
+                .form{
+                    background-color: #BFC9CA;
+                    /* border: 1px solid green; */
+                    float: right;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: medium;
+                    padding: 0px;
+                    padding-right: 30px;
+                    padding-left: 20px;
+                    
+                    
+                    }
+                                /* ---DIV 3 Joining div 4-- */
+                    .div3{
+                        /* border: 5px dotted black; */
+                        margin-top: 10px;
+                    }
+                                /* ---div4  last image---- */
+                    .div4{
+                        /* border: 2px solid blue; */
+                        width: fit-content;
+                    }

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body onload="fnload()">
+    <input type="text" placeholder="name" id="name"><br><br>
+    <input type="text" placeholder="age" id="age"><br><br>
+    <input type="text" placeholder="place" id="place"><br><br>
+
+
+    <button type="submit" onclick="funinsert()">submit</button>
+    <table id="tbl">
+        <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>place</th>
+        </tr>
+    </table>
+
+    <script>
+        $.ajaxSetup({
+            headers:{"X-CSRFToken":'{{csrf_token}}'}
+
+        })
+        function funinsert(){
+            $.ajax({
+                url:'/ajax2/',
+                type:'POST',
+                data:{
+                    name:$('#name').val(),
+                    age:$('#age').val(),
+                    place:$('#place').val()
+                },
+                success:function(response){
+                    alert(response.msg)
+                    fnload()
+                }
+            })
+        }
+
+        // getting data from database
+        function fnload(){
+            $.ajax({
+                url:'/loaddata/',
+                type:'GET',
+                success:function(response){
+                    // console.log(response.data)
+                    // this line for no repeat a row (line :55)
+                    $('.norept').remove()
+                    for(i=0; i<response.data.length; i++){
+                        $('#tbl').append("<tr class='norept'><td>"+response.data[i].id+"</td><td>"+response.data[i].name+"</td><td>"+response.data[i].age+"</td><td>"+response.data[i].place+"</td><td><button data-toggle='modal' data-target='#update' onclick='fnupdate("+response.data[i].id+")'>Update</button></td><td><button onclick=fndelete("+response.data[i].id+")>Delete</button></td></tr>")
+                    }
+                }
+            })
+        }
+
+        // button function
+        function fnupdate(id){
+            $.ajax({
+                url:'/dataupdate/',
+                type:'POST',
+                data:{
+                    id: id
+                },
+                success:function(response){
+                    console.log(response.userObj)
+                    $('#txt').val(response.userObj[0].id),
+                    $('#name1').val(response.userObj[0].name),
+                    $('#age1').val(response.userObj[0].age),
+                    $('#place1').val(response.userObj[0].place)
+                    
+                }
+
+            })
+        }
+
+
+        function fnupadtedata(){
+            console.log($('#txt').val())
+            console.log($('#name1').val())
+            console.log($('#age1').val())
+            console.log($('#place1').val())
+
+            $.ajax({
+               url:'/updatedata/',
+               type:'POST',
+               data:{
+                   id: $('#txt').val(),
+                   name:$('#name1').val(),
+                   age:$('#age1').val(),
+                   place:$('#place1').val()
+                   
+               },
+               success:function(response){
+                    alert(response.msg1)
+                //    console.log(response.msg1)
+                //    fnload()
+                   
+               } 
+            })
+        }
+
+
+        // delete row 
+
+        function fndelete(id){
+            $.ajax({
+                url:'/delete/',
+                type:'POST',
+                data:{
+                    id:id
+                },
+                success:function(response){
+                    alert(response.delmsg)
+                    fnload()
+                }
+            })
+        }
+
+    </script>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="update" tabindex="-1" aria-labelledby="update" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="update">
+              <input type="text" id="txt" readonly><br>
+              <input type="Name" placeholder="name" id='name1'>
+              <input type="age" placeholder="age" id="age1">
+              <input type="Place" placeholder="place" id="place1">
+                <br><br>
+              <button type="submit" onclick="fnupadtedata()">Update</button>
+            
+
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>

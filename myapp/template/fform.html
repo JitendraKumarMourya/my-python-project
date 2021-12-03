@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+</head>
+<body>
+    <h3>Facebook Form</h3>
+    <form action="/facebookform/" method="POST">
+        {% csrf_token %}
+    <input type="text" name="fname" placeholder="First Name"><br><br>
+    <input type="text" name="lname" placeholder="Last Name"><br><br>
+    <input type="text" name="mob" placeholder="Mobile Number"><br><br>
+    <input type="text" name="email" placeholder="Email"><br><br>
+    <input type="password" name="pass" placeholder="Password"><br><br>
+    <select name="d">
+        <option>Day</option>
+        <script>
+            for(i=1; i<=31; i++)
+            {
+              if(i<10){
+                document.write("<option value='"+0 + i +"'>" + i + "</option>")
+              }
+              else{
+                document.write("<option value='"+ i +"'>" + i + "</option>")
+              }
+            }
+          </script>
+    </select>
+    <select name="m">
+        <option>Month</option>
+        <script>
+            months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+              for(i=1;i<=12;i++)
+              {
+                if(i<10){
+                  document.write("<option value='"+0+i+"'>"+months[i-1]+"</option>")
+                } 
+                  else{
+                    document.write("<option value='"+i+"'>"+months[i-1]+"</option>")
+                }
+              }
+          </script>
+    </select>
+    <select name="y">
+        <option>Year</option>
+        <script>
+            for(i=1990; i<=(new Date().getFullYear()); i++){
+                document.write("<option value='"+ i +"'>" + i + "</option>")
+            }
+          </script>
+    </select><br><br>
+    <input type="radio" name="gen" value="male">Male
+    <input type="radio" name="gen" value="female">Female
+    <input type="radio" name="gen" value="other">Others<br><br>
+
+    <button type="submit">Submit Form</button>
+    </form>
+</body>
+</html>

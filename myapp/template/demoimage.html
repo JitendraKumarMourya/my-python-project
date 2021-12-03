@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo image</title>
+    
+    <link rel="stylesheet" href="{% static 'css/image_demo.css' %}">
+    <style>
+        .img{
+            width: 100%;
+            height: 500px;
+            background-image: url("{% static 'image/python-back.jpg' %}");
+            opacity: .6;
+        }
+        .lab1{
+            color: white;
+            border: 1px solid black;
+            
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="div1">
+
+        <img src="{% static 'image/python-logo.jpg'%}" width="80px" height="60px">
+        <h3 class="div2">PYTHON</h3>
+        
+    </div>
+    <div class="img">
+    <form>
+        <label for="fn" class="lab1">First Name</label>
+        <input type="text">
+    </form>
+    </div>
+</body>
+</html>

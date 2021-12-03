@@ -1,0 +1,107 @@
+           /* Container DIV */
+           .container{
+            /* border: 2px solid red; */
+            background-color:#212F3D;
+            width: 100%;
+            height: 500px;
+            
+        }
+            /* Header DIV for image and tilte of companay name */
+        .header{
+            /* border: 2px solid black; */
+            /* width: 100%; */
+            /* height: 80px; */
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-left: 160px;
+            padding-top: 10px;
+            
+            
+        }
+            /* This h3 DIV for companay title name */
+        .h3{
+            padding-left: 10px;
+            padding-top: 0px;
+            width: 30px;
+            color: white;
+            
+        }
+            /* ul and li and a DIV for using list */
+        .ul{
+            display: inline;
+            padding-left: 350px;
+            
+        }
+        .ul li {
+            float: right;
+            list-style-type: none;
+            padding-right: 20px;
+            font-size: 14px;
+           
+            
+        }.ul li a{
+            text-decoration: none;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+            /* this div2 is 2nd container div havinga a form and image */
+        
+            /* img2 for 2nd image only */
+        .img2{
+            float: right;
+            margin-right: 250px;
+            padding-top: 45px;
+        }
+
+          /* this form div only for form */
+        .form{
+            /* border: 1px solid white; */
+            width: 220px;
+            height: 250px;
+            padding: 20px;
+            padding-top: 5px;
+            background-color: #325194;
+            margin: 60px;
+            margin-left: 190px;
+        }
+
+            /* login DIV for Login Title in the form */
+        .login{
+            text-align: center;
+            color: white;
+        }
+
+            /* tb Div text Boxes */
+        #tb{
+            width: 200px;
+            height: 20px;
+            /* background-color: #325182; */
+            color:black;
+        }
+            /* bt Div for button */
+        #bt{
+            width: 207px;
+            height: 28px;
+            color:white;
+            background-color: #0000FF;
+        }
+
+            /* fp for forgot password title */
+        .fp{
+            color:tomato;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+            /* p1 dont */
+        .p1{
+            color: tomato;
+            font-size: 12px;
+            text-align: center;
+        }
+        .p{
+            text-decoration: none;
+            color: white;
+        }

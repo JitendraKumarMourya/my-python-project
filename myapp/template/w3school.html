@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w3 school project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .div1{
+            /* border: 2px solid black; */
+            align-items: center;
+            display: flex;
+            
+            
+        }
+        .select{
+            border: transparent;
+            
+        }
+        .a{
+            color: black;
+            text-decoration: none;
+        }
+
+                /* 2nd bar */
+        .div2{
+            position: fixed;
+            
+        }
+        .ul1 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li{
+        float: left;
+        }
+
+        li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+        .div3{
+        background-color: lightgray;
+        }
+        
+        
+  </style>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="div1">
+            <a href=""><img src="{% static 'image/w3school.jpg' %} " width="80px" height="56px" alt=""></a>
+
+            <select name="toutorial" style="margin-left:5px;" class="select">
+                <option>Toutorial</option>
+                <option value="">HTML</option>
+                <option value="">CSS</option>
+                <option value="">javascripts</option>
+                <option value="">Programing</option>
+                <option value="">Server Sside</option>
+            </select>
+
+            <select name="refernce" style="margin-left: 20px;" class="select">
+                <option>Referance</option>
+                <option value="">HTML</option>
+                <option value="">Css</option>
+                <option value="">javacripts></option>
+                <option value="">Programing</option>
+                <option value="">Server Side</option>
+            </select>
+
+            <select name="exercises" style="margin-left: 20px;" class="select">
+                <option>Exercises</option>
+                <option value="">HTML</option>
+                <option value="">Css</option>
+                <option value="">javacripts></option>
+                <option value="">Programing</option>
+                <option value="">Server Side</option>
+            </select>
+
+            <a href="" class="a"><h4 style="margin-left: 20px;">Video</h4></a>
+            <a href="" class="a"><h4 style="margin-left: 40px;">Space</h4></a>
+            <a href="" class="a"><h4 style="margin-left: 40px;">Paid Course</h4></a>
+
+            <button style="font-weight: bold; background-color: seagreen; color:white; font-size: 15px; width: 80px; height: 30px; text-align: center; margin-left: 120px; border-radius: 50px; border: transparent;">Log In</button>
+        </div>
+
+
+
+                    <!-- 2nd nav -->
+        <div class="div2">
+            <ul class="ul1" style="height: calc(10vh - 0px);">
+                <a href=""><i class="fa fa-home" style="float: left; font-size:24px; color: white; padding-top: 9px; padding-right: 5px; margin-left: 10px;"></i></a>
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JAVASCRIPTS</a></li>
+                <li><a href="">SQL</a></li>
+                <li><a href="">PYTHON</a></li>
+                <li><a href="">PHP</a></li>
+                <li><a href="">BOOT STRAP</a></li>
+                <li><a href="">HOW TO</a></li>
+                <li><a href="">W3.CSS</a></li>
+                <li><a href="">JAVA</a></li>
+                
+                <i class="material-icons" style="font-size: 25px; color: white; padding-top: 9px; padding-left: 35px;">language</i>
+                <i class="fa fa-search" style=" float: right; font-size:24px; color: white; padding-top: 8px; padding-right: 6px;"></i>
+            </ul>
+        </div>
+                <!-- 3rd bar -->
+                <div style="height: 500px; width: 200px; background-color: red;">
+                    <ul>
+                        <li><a href="">HTML Introduction</a></li>
+                    <li><a href="">HTML Images</a></li>
+                    <li><a href="">HTML styles</a></li>
+                    <li><a href="">HTML Tags</a></li>
+                    <li><a href="">HTML Properties</a></li>
+                    <li><a href="">HTML Heading</a></li>
+                    <li><a href="">HTML Paragraph</a></li>
+                    <li><a href="">HTML Basic</a></li>
+                    <li><a href="">HTML Elements</a></li>
+                </ul>
+    </div>
+</div>
+</body>
+</html>
