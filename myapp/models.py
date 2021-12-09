@@ -56,6 +56,16 @@ class ajax2(models.Model):
     place=models.CharField(max_length=50)
 
 
+
+
+
+
+
+
+
+
+
+
 # ORM_Login Demo
 class Orm_login_Demo(models.Model):
     UserName=models.CharField(max_length=30)
